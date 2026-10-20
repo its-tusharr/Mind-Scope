@@ -1,4 +1,4 @@
-﻿# Mind-Scope_Digital Habits & Wellbeing Insights
+﻿# Mind-Scope Digital Habits & Wellbeing Insights
 Mental Health Score Predictor
 Mind-Scope is a machine learning-powered web application designed to explore the relationship between digital habits and mental well-being. It uses a trained machine learning model to generate a predicted mental health score based on user-provided inputs.
 
