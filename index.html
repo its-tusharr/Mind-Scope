@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MindScope – Digital Habits &amp; Wellbeing Insights</title>
+  <meta name="description" content="Explore how digital habits relate to a machine-learning predicted mental health score.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#assessment">Skip to assessment</a>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="brand" aria-label="MindScope home">
+        <svg class="brand__icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17c3-6 5 6 8 0s5 6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>MindScope</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#assessment">Assessment</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#about">About</a>
+        <a href="#assessment" class="btn btn--primary btn--sm">Start Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <span class="pill">Machine Learning Powered Insights</span>
+          <h1>Understand Your Digital Habits. Explore Your Wellbeing.</h1>
+          <p class="lead">Explore how your social media usage, sleep, study habits, physical activity, and stress levels relate to your predicted mental health score.</p>
+          <div class="hero__cta">
+            <a href="#assessment" class="btn btn--primary">Start Assessment</a>
+            <a href="#how-it-works" class="btn btn--ghost">How It Works</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <svg viewBox="0 0 400 360">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9c3f5"/><stop offset="1" stop-color="#a9d8f5"/></linearGradient>
+            </defs>
+            <circle cx="200" cy="180" r="150" fill="url(#g1)" opacity=".45"/>
+            <circle cx="200" cy="180" r="105" fill="#fff" opacity=".8"/>
+            <path d="M110 190c25-60 45 50 70 0s45 50 70 0 30 40 40 0" fill="none" stroke="#5b4fd6" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="95" cy="90" r="22" fill="#b9ead8"/>
+            <circle cx="325" cy="265" r="30" fill="#d9d5fa"/>
+            <circle cx="320" cy="85" r="12" fill="#a9d8f5"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ASSESSMENT ===== -->
+    <section class="section" id="assessment">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <h2>Assessment</h2>
+          <p>Fill in the details below. Fields marked <span class="req">*</span> are required.</p>
+        </div>
+
+        <div class="card" id="formCard">
+          <div class="alert alert--error" id="formAlert" role="alert" hidden></div>
+
+          <form id="assessmentForm" novalidate>
+            <fieldset class="group">
+              <legend>Personal Information</legend>
+              <div class="grid">
+                <div class="field">
+                  <label for="age">Age <span class="req">*</span></label>
+                  <input type="number" id="age" name="age" min="10" max="120" step="1" placeholder="e.g. 21" inputmode="numeric" required>
+                  <small class="hint">Whole number, 10–120.</small>
+                  <small class="error" id="age-error"></small>
+                </div>
+                <div class="field">
+                  <label for="gender">Gender <span class="req">*</span></label>
+                  <select id="gender" name="gender" required>
+                    <option value="">Select…</option>
+                    <option>Male</option><option>Female</option><option>Other</option>
+                  </select>
+                  <small class="error" id="gender-error"></small>
+                </div>
+                <div class="field">
+                  <label for="country">Country <span class="req">*</span></label>
+                  <input type="text" id="country" name="country" list="countryList" placeholder="Start typing a country" autocomplete="off" required>
+                  <datalist id="countryList"></datalist>
+                  <small class="hint">Pick a suggestion or type any country.</small>
+                  <small class="error" id="country-error"></small>
+                </div>
+                <div class="field">
+                  <label for="academic_level">Academic Level <span class="req">*</span></label>
+                  <select id="academic_level" name="academic_level" required>
+                    <option value="">Select…</option>
+                    <option>High School</option><option>Undergraduate</option><option>Graduate</option>
+                  </select>
+                  <small class="error" id="academic_level-error"></small>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend>Social Media Habits</legend>
+              <div class="grid">
+                <div class="field">
+                  <label for="most_used_platform">Most Used Platform <span class="req">*</span></label>
+                  <select id="most_used_platform" name="most_used_platform" required>
+                    <option value="">Select…</option>
+                    <option>Facebook</option><option>LinkedIn</option><option>Instagram</option><option>Snapchat</option>
+                    <option>Twitter</option><option>YouTube</option><option>TikTok</option><option>LINE</option>
+                    <option>KakaoTalk</option><option>VKontakte</option><option>WhatsApp</option><option>WeChat</option>
+                  </select>
+                  <small class="error" id="most_used_platform-error"></small>
+                </div>
+                <div class="field">
+                  <label for="purpose_of_use">Purpose of Use <span class="req">*</span></label>
+                  <select id="purpose_of_use" name="purpose_of_use" required>
+                    <option value="">Select…</option>
+                    <option>Networking</option><option>Education</option><option>Entertainment</option><option>News</option>
+                  </select>
+                  <small class="error" id="purpose_of_use-error"></small>
+                </div>
+                <div class="field">
+                  <label for="avg_daily_usage_hours">Average Daily Usage (hours) <span class="req">*</span></label>
+                  <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" placeholder="e.g. 4.5" inputmode="decimal" required>
+                  <small class="hint">0–24 hours.</small>
+                  <small class="error" id="avg_daily_usage_hours-error"></small>
+                </div>
+                <div class="field">
+                  <label for="daily_unlocks">Daily Phone Unlocks <span class="req">*</span></label>
+                  <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" placeholder="e.g. 80" inputmode="numeric" required>
+                  <small class="hint">Whole number, 0 or more.</small>
+                  <small class="error" id="daily_unlocks-error"></small>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend>Lifestyle and Wellbeing</legend>
+              <div class="grid">
+                <div class="field">
+                  <label for="study_hours">Study Hours (per day) <span class="req">*</span></label>
+                  <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" placeholder="e.g. 3" inputmode="decimal" required>
+                  <small class="hint">0–24 hours.</small>
+                  <small class="error" id="study_hours-error"></small>
+                </div>
+                <div class="field">
+                  <label for="physical_activity_hours">Physical Activity (per day) <span class="req">*</span></label>
+                  <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.1" placeholder="e.g. 1.5" inputmode="decimal" required>
+                  <small class="hint">0–24 hours.</small>
+                  <small class="error" id="physical_activity_hours-error"></small>
+                </div>
+                <div class="field">
+                  <label for="sleep_hours_per_night">Sleep Per Night (hours) <span class="req">*</span></label>
+                  <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" placeholder="e.g. 7" inputmode="decimal" required>
+                  <small class="hint">0–24 hours.</small>
+                  <small class="error" id="sleep_hours_per_night-error"></small>
+                </div>
+                <div class="field">
+                  <label for="stress_level">Stress Level <span class="req">*</span></label>
+                  <select id="stress_level" name="stress_level" required>
+                    <option value="">Select…</option>
+                    <option>Medium</option><option>Low</option><option>Very High</option><option>High</option>
+                  </select>
+                  <small class="error" id="stress_level-error"></small>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
+                <span class="spinner" aria-hidden="true"></span>
+                <span class="btn__label">Predict My Score</span>
+              </button>
+              <p class="loading-text" id="loadingText" role="status" aria-live="polite" hidden>Analyzing your inputs...</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- ===== RESULTS ===== -->
+        <div class="card result" id="resultCard" hidden tabindex="-1" aria-live="polite">
+          <span class="pill">Model-generated estimate</span>
+          <h3>Your Predicted Mental Health Score</h3>
+          <div class="result__score" id="scoreValue">–</div>
+
+          <!-- Speedometer-style gauge (position relative to training-data range) -->
+          <figure class="gauge" aria-label="Score position gauge">
+            <svg viewBox="0 0 240 140" class="gauge__svg" role="img" aria-labelledby="gaugeDesc">
+              <title id="gaugeDesc">Gauge showing where the predicted score sits within the range of scores seen in the training data</title>
+              <path d="M 20 120 A 100 100 0 0 1 70 33.4" class="gauge__arc gauge__arc--low"/>
+              <path d="M 70 33.4 A 100 100 0 0 1 170 33.4" class="gauge__arc gauge__arc--mid"/>
+              <path d="M 170 33.4 A 100 100 0 0 1 220 120" class="gauge__arc gauge__arc--high"/>
+              <g id="gaugeNeedle" class="gauge__needle">
+                <line x1="120" y1="120" x2="120" y2="38" />
+                <circle cx="120" cy="120" r="8" />
+              </g>
+            </svg>
+            <div class="gauge__labels"><span>Lower</span><span>Middle</span><span>Higher</span></div>
+            <p class="gauge__band" id="gaugeBand"></p>
+            <figcaption class="gauge__caption" id="gaugeCaption"></figcaption>
+          </figure>
+          <p class="result__note">Returned by the prediction model for the inputs you submitted. This number has no validated rating scale, so no label or category is attached to it.</p>
+
+          <details class="summary">
+            <summary>View submitted inputs</summary>
+            <dl id="summaryList"></dl>
+          </details>
+
+          <p class="disclaimer disclaimer--inline">This result is a model-generated estimate, not a medical diagnosis.</p>
+          <div class="result__actions">
+            <button type="button" class="btn btn--primary" id="tryAgainBtn">Try Again</button>
+            <button type="button" class="btn btn--ghost" id="printBtn">Print Results</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section section--tint" id="how-it-works">
+      <div class="container">
+        <div class="section__head"><h2>How It Works</h2></div>
+        <ol class="steps">
+          <li class="step"><span class="step__num">1</span><h3>Share Your Habits</h3><p>Enter information about social media use, daily routines, and lifestyle.</p></li>
+          <li class="step"><span class="step__num">2</span><h3>Machine Learning Analysis</h3><p>The backend processes your inputs using the trained prediction model.</p></li>
+          <li class="step"><span class="step__num">3</span><h3>View Your Prediction</h3><p>Review the model-generated score and understand its limitations.</p></li>
+        </ol>
+        <div class="tech" aria-label="Technologies used">
+          <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>FastAPI</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container container--narrow">
+        <div class="section__head"><h2>About This Project</h2></div>
+        <p class="about">MindScope is a machine learning portfolio project. A regression model, trained on a survey-style dataset of student social media usage and wellbeing, estimates a mental health score from the habits you enter. The frontend is plain HTML, CSS and JavaScript and talks to a FastAPI backend that serves the model.</p>
+        <div class="disclaimer" role="note">
+          <strong>Disclaimer.</strong> This tool is intended for educational and informational purposes only. Its output is a machine-learning prediction, not a clinical assessment, diagnosis, or substitute for advice from a qualified mental health professional. Model predictions may be inaccurate and should not be used to make medical decisions.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>MindScope</strong> · Mental Health Score Prediction · <span id="year"></span> All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
